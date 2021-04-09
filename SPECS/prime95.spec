@@ -32,7 +32,7 @@ cd %{_builddir}/prime95-30.3b6
 cd gwnum
 make -f make64 %{?_smp_mflags}
 cd ../linux64
-make -f makefile %{?_smp_mflags} -mno-avx
+make -f makefile %{?_smp_mflags}
 cd ..
 
 #%{?_smp_mflags}

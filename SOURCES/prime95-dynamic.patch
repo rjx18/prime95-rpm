@@ -1,13 +1,18 @@
---- a/linux64/makefile	2020-09-10 23:08:46.000000000 -0700
-+++ b/linux64/makefile	2021-04-08 06:01:34.642693474 -0700
-@@ -26,8 +26,9 @@
+--- ./prime95-orig/linux64/makefile	2020-09-11 07:08:46.000000000 +0100
++++ ./prime95-src-patched/linux64/makefile	2021-04-09 11:51:21.089332839 +0100
+@@ -21,13 +21,13 @@
+ #	LIBS = ../gwnum/gwnum.a ../gwnum/gwnum.ld -lm -lpthread -Wl,-Bstatic $(shell pkg-config --static --libs libhwloc) -Wl,-Bstatic $(shell pkg-config --static --libs libcurl) -lstdc++ -Wl,-Bdynamic -ldl
+ 
+ CC = gcc
+-CFLAGS = -I.. -I../gwnum -I/usr/local/include -DX86_64 -Wno-unused-result -O2
++CFLAGS = -I.. -I../gwnum -I/usr/local/include -I/tmp/temp_install/usr/include -DX86_64 -Wno-unused-result -O2
+ 
  CPP = g++
  CPPFLAGS = -I.. -I../gwnum -DX86_64 -O2
  
 -LFLAGS = -Wl,-M -Wl,-L/usr/local/lib
 -LIBS = ../gwnum/gwnum.a ../gwnum/gwnum.ld -lm -lpthread -Wl,-Bstatic -lhwloc -Wl,-Bstatic -lcurl -Wl,-Bdynamic -lrt -lstdc++ -lz -lxml2 -ldl -lgmp
-+LFLAGS = -Wl,-M -Wl,-L/usr/local/lib,-L/tmp/temp_install/usr/local/lib
-+#LIBS = ../gwnum/gwnum.a ../gwnum/gwnum.ld -lm -lpthread -Wl,-Bdynamic -lhwloc -Wl,-Bstatic -lrt -lstdc++ -ldl -lgmp
++LFLAGS = -Wl,-M -Wl,-L/usr/local/lib,-L/tmp/temp_install/usr/lib64
 +LIBS = ../gwnum/gwnum.a ../gwnum/gwnum.ld -lm -lpthread -Wl,-Bdynamic -lhwloc -Wl,-Bstatic -lcurl -Wl,-Bdynamic -lrt -lstdc++ -ldl -lgmp
  #LIBS = ../gwnum/gwnum.a ../gwnum/gwnum.ld -lm -lpthread -Wl,-Bstatic -lhwloc -Wl,-Bstatic -lcurl -Wl,-Bdynamic -lrt -lstdc++ -ldl -lgmp
  
